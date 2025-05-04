@@ -1,0 +1,20 @@
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>OAuth finished</title>
+  <script>
+    if (window.opener) {
+      window.opener.postMessage(location.hash, "*");
+    }
+    window.close();
+  </script>
+</head>
+<body>
+  <p> You may now close this window. </p>
+</body>
+</html>
+

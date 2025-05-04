@@ -1,0 +1,19 @@
+# this is only for backend deploy
+fastapi==0.115.12
+uvicorn==0.34.0
+gunicorn==22.0.0
+
+SQLAlchemy==2.0.30
+psycopg2==2.9.10
+
+pandas==2.2.3
+numpy==1.26.4
+scikit-learn==1.6.1        
+networkx<4.0.0,>=3.1.0
+node2vec==0.5.0
+sentence-transformers==4.1.0
+torch==2.6.0
+
+python-dotenv==1.0.1
+
+setuptools==75.1.0
