@@ -1,0 +1,39 @@
+{
+  "name": "AniMusic",
+  "description": "Anime‑music recommendations using your AniList profile.",
+  "version": "1.0.0",
+  "manifest_version": 3,
+
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+
+  "host_permissions": [
+    "https://graphql.anilist.co/*",
+    "https://sideproject-production-fc87.up.railway.app/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "action": {
+    "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*", "*://soundcloud.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["oauth_done.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

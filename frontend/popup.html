@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AniMusic</title>
+  <style>
+    body { min-width: 400px; font-family: sans-serif; }
+    #playlistContainer { margin-top:10px; max-height:180px; overflow-y:auto; border:1px solid #ccc; padding:5px; }
+    #playlistList li.current { font-weight:bold; color:blue; }
+    #favBtn { font-size:20px; border:none; background:none; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <h1>AniMusic</h1>
+  <button id="loginBtn">Login with AniList</button>
+  <button id="uploadProfileBtn">Upload AniList Profile</button>
+  <p id="userInfo"></p>
+
+  <button id="fetchPlaylistBtn">Fetch Playlist</button>
+  <div id="playlistContainer"><ul id="playlistList"></ul></div>
+
+  <button id="prevBtn">Prev</button>
+  <button id="nextBtn">Next</button>
+  <button id="favBtn">♡</button>
+
+  <p id="status"></p>
+
+  <script src="popup.js"></script>
+</body>
+</html>
