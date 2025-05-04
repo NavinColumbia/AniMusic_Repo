@@ -1,0 +1,11 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>OAuth finished</title>
+<script>
+ 
+  if (window.opener) {
+    window.opener.postMessage(location.hash, "*");
+  }
+  window.close();
+</script>
+<!-- added here, because chrome when publishing asks for this file as it's referenced in server, but not needed otherwise. -->

@@ -31,17 +31,17 @@ The generated pkl files can be found in `./backend-deploy/model_files`. If you w
 
 ## FrontEnd
 
-The chrome extension frontend code is present in frontend_edge. You can  go to go to chrome://extensions/, enable developer mode and load unpacked entire folder if you wish to test chrome extension locally. <br/>
+The chrome extension frontend code is present in `./frontend`. You can  go to go to chrome://extensions/, enable developer mode and load unpacked entire folder if you wish to test chrome extension locally. <br/>
 
 
 
 
 ## BackEnd
 
-The backend code is present at ./backend_deploy <br/>
+The backend code is present at `./backend_deploy` <br/>
 
  `./backend-deploy/app` contains the source py files. <br/>
-  `./backend-deploy/static` contains the html page redircted to on anilist login. <br/> There is also a requirements.txt containing dependencies. A Dockerfile is also present. <br/> 
+  `./backend-deploy/static` contains the html page redircted to on anilist login. <br/> There is also a `requirements.txt` containing dependencies. A Dockerfile is also present. <br/> 
   To deploy the code create a new repo and push backend-deploy to it, then you can deploy the repo via railway. You can create a postgres db in the same environment in the GUI and get the postgresql url.
 
 
