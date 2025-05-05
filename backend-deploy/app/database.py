@@ -3,10 +3,12 @@ from datetime import datetime
 from sqlalchemy import create_engine, Column, Integer, String, Float, DateTime, UniqueConstraint
 from sqlalchemy.orm import declarative_base, sessionmaker
 
-DATABASE_URL = os.getenv(
-    "DATABASE_URL",
-    "replace with postgreql here"
-)
+from dotenv import load_dotenv
+
+load_dotenv()  
+
+
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 engine = create_engine(
     DATABASE_URL,
@@ -43,5 +45,9 @@ class UserAnime(Base):
     __table_args__   = (UniqueConstraint('anilist_username', 'mal_id'),)
 
 
-def init_db():
+
+def init_db(drop_first: bool = False):
+    if drop_first:
+        Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
+

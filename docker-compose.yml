@@ -1,0 +1,35 @@
+# docker-compose.yml
+services:
+  db:
+    image: postgres:15
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "65432:5432" 
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-animusic_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-animusic_pass}
+      POSTGRES_DB: ${POSTGRES_DB:-animusic_db}
+
+  api:
+    build:
+      context: ./backend-deploy
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgresql://animusic_user:animusic_pass@db:5432/animusic_db}
+      BACKEND_ORIGIN: ${BACKEND_ORIGIN}
+      PORT: 8080
+    command: >
+      gunicorn --preload
+               -k uvicorn.workers.UvicornWorker
+               -w 2
+               -b 0.0.0.0:8080
+               app.main:app
+
+volumes:
+  db_data:

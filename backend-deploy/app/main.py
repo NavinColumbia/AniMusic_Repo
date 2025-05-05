@@ -12,6 +12,12 @@ from app.database import SessionLocal, init_db, Feedback, UserAnime
 from app.schemas   import AniListProfileIn, FeedbackCreate, PlaylistResponse, VideoItem
 from app.master_recommender import BigMasterRecommender
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  
+
+
 ROOT = Path(__file__).resolve().parent.parent
 
 app = FastAPI(title="AniMusic‑API", version="1.0.0")
@@ -20,7 +26,7 @@ app = FastAPI(title="AniMusic‑API", version="1.0.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "replace with deployed railway url here",   
+        os.getenv("BACKEND_ORIGIN"),
         "http://localhost:8000"
     ],
     allow_origin_regex=r"^(chrome|moz)-extension://[a-z0-9]{32}$",
@@ -32,7 +38,10 @@ app.add_middleware(
 app.mount("/static", StaticFiles(directory=str(ROOT / "static")), name="static")
 
 
-init_db()
+# true ewill drop and recreate every run when movinfgto prod set ito false!!!!!!!!
+init_db(drop_first=False)
+
+
 big = BigMasterRecommender()
 
 def get_db():
