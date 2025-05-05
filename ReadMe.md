@@ -186,7 +186,7 @@ See `milestone_docs/` for **proposal, progress report, final report**.
 
 ## Author
 
-Navinashok Swaminathan <br/>
-UNI : NS3886
+`Navinashok Swaminathan` <br/>
+`UNI : NS3886`
 
 
