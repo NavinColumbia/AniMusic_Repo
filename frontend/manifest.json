@@ -12,11 +12,12 @@
 
   "host_permissions": [
     "https://graphql.anilist.co/*",
-    "https://sideproject-production-fc87.up.railway.app/*"
+    "http://localhost:8080/*"
   ],
 
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "type": "module"
   },
 
   "action": {

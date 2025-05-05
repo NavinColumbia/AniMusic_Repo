@@ -1,7 +1,4 @@
-const API_BASE = location.hostname === "localhost"
-               ? "http://localhost:8000"
-               : "https://sideproject-production-fc87.up.railway.app";
-
+import { API_BASE } from "./config.js";
 if (typeof browser === "undefined") var browser = chrome;
 
 

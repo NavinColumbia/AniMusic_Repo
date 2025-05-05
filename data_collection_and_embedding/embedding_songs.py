@@ -4,7 +4,7 @@ import pickle
 import os
 from sentence_transformers import SentenceTransformer
 
-CSV_PATH = "songs_final.csv"
+CSV_PATH = "songs.csv"
 MODEL_OUTPUT = "model_files/embeddings.pkl"
 MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 

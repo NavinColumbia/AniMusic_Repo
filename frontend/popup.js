@@ -1,8 +1,8 @@
+import { API_BASE, ANILIST_CLIENT_ID, OAUTH_REDIRECT_URI } from "./config.js";
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const browser = window.browser || window.chrome;
-  const API_BASE = location.hostname === "localhost"
-    ? "http://localhost:8000"
-    : "https://sideproject-production-fc87.up.railway.app";
 
 
   const $ = id => document.getElementById(id);
@@ -18,10 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   loginBtn.addEventListener("click", () => {
-    const clientId    = 25844;
-    const redirectUri = encodeURIComponent(
-      "https://sideproject-production-fc87.up.railway.app/static/oauth_done.html"
-    );
+    const clientId    = ANILIST_CLIENT_ID;
+    const redirectUri = encodeURIComponent(OAUTH_REDIRECT_URI);
     const url = `https://anilist.co/api/v2/oauth/authorize`
               + `?client_id=${clientId}`
               + `&response_type=token`;

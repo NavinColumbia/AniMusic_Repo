@@ -2,7 +2,7 @@ import os, pickle, pandas as pd
 from sentence_transformers import SentenceTransformer
 
 
-CSV_PATH      = "songs_final.csv" # change this one if you want to try locally 
+CSV_PATH      = "songs.csv" # change this one if you want to try locally 
 MODEL_NAME    = "sentence-transformers/all-mpnet-base-v2"
 EMBED_OUT     = "model_files/embeddings_mpnet.pkl"
 
